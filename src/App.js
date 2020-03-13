@@ -1,0 +1,119 @@
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { reset, themes, AppBar, Toolbar, TextField, Hourglass } from 'react95';
+import PokemonModal from './components/PokemonModal';
+import AboutModal from './components/AboutModal';
+import Menu from './components/Menu';
+import Pokemon from './components/Pokemon';
+import AboutModalButton from './components/AboutModalButton';
+import PokemonModalButton from './components/PokemonModalButton';
+import Store from './store';
+import axios from 'axios';
+import FilterResults from 'react-filter-search';
+
+const ResetStyles = createGlobalStyle`
+  ${reset}
+`;
+
+function App() {
+  const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const res = await axios('https://pokeapi.co/api/v2/pokemon?limit=151');
+        const data = res.data.results.map((i, idx) => {
+          return {
+            id: idx + 1,
+            name: i.name,
+            selected: false,
+          };
+        });
+        setPokemons(data);
+      } catch (e) {
+        setError(true);
+      }
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div
+        className="flex items-center justify-center"
+        style={{ height: '90vh' }}
+      >
+        <Hourglass size={40} />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p style={{ color: 'white' }}>An error occurred. Please refresh.</p>;
+  }
+
+  const setSelected = id => {
+    const data = pokemons.map(i => {
+      return {
+        ...i,
+        selected: false,
+      };
+    });
+    const idx = data.findIndex(i => i.id === +id);
+    data[idx].selected = true;
+    setPokemons(data);
+  };
+
+  return (
+    <Store>
+      <ResetStyles />
+      <ThemeProvider theme={themes.default}>
+        <AppBar style={{ zIndex: 3 }}>
+          <Toolbar className="flex justify-between">
+            <Menu />
+            <AboutModalButton />
+            <PokemonModalButton />
+            <TextField
+              placeholder="Search..."
+              width={150}
+              style={{ marginLeft: 'auto' }}
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+          </Toolbar>
+        </AppBar>
+        <div className="container pt4">
+          <PokemonModal />
+          <AboutModal />
+          <div className="clearfix mxn1">
+            <FilterResults
+              value={search}
+              data={pokemons}
+              renderResults={results => (
+                <>
+                  {results.map(i => (
+                    <div
+                      key={i.id}
+                      className="col col-6 sm-col-3 md-col-2 px1 mb2"
+                    >
+                      <Pokemon pokemon={i} setSelected={setSelected} />
+                    </div>
+                  ))}
+                </>
+              )}
+            />
+          </div>
+        </div>
+      </ThemeProvider>
+    </Store>
+  );
+}
+
+export default App;
