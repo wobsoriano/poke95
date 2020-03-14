@@ -78,7 +78,7 @@ const PokemonModal = () => {
         display: state.pokemonModal ? 'block' : 'none',
       }}
     >
-      <WindowHeader className="flex items-center justify-between">
+      <WindowHeader className="window-header flex items-center justify-between">
         <span>Pokemon.exe</span>
         <Button
           style={{ marginRight: '-6px', marginTop: '1px' }}
