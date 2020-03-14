@@ -17,7 +17,7 @@ import { StoreContext } from '../store';
 import { titleCase, roundOff } from '../utils';
 
 const typeColors = {
-  normal: '#B7B7A8',
+  normal: '#8A8A80',
   fire: '#FE6148',
   water: '#4B90D6',
   electric: '#FFCC32',
@@ -57,8 +57,17 @@ const PokemonModal = () => {
   const types = state.selectedPokemon.types.map((i, idx) => {
     return (
       <React.Fragment key={idx}>
-        <span style={{ color: typeColors[i.type.name] }}>{i.type.name}</span>
-        {state.selectedPokemon.types.length !== idx + 1 && ', '}
+        <div
+          style={{
+            background: typeColors[i.type.name],
+            color: '#FFFFFF',
+            padding: 5,
+            maxWidth: 100,
+            display: 'inline-block',
+          }}
+        >
+          {i.type.name}
+        </div>{' '}
       </React.Fragment>
     );
   });
@@ -137,7 +146,7 @@ const PokemonModal = () => {
                       </span>
                     </div>
 
-                    <p className="mt2">{types}</p>
+                    <div className="mt2">{types}</div>
 
                     <p className="mt2">
                       <span className="bold">Height:</span>{' '}
