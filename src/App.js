@@ -80,42 +80,46 @@ function App() {
     <Store>
       <ResetStyles />
       <ThemeProvider theme={themes.default}>
-        <AppBar style={{ zIndex: 3 }}>
-          <Toolbar className="flex justify-between">
-            <Menu />
-            <AboutModalButton />
-            <PokemonModalButton />
-            <TextField
-              placeholder="Search..."
-              width={150}
-              style={{ marginLeft: 'auto' }}
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-          </Toolbar>
-        </AppBar>
-        <div className="container pt4">
-          <PokemonModal />
-          <AboutModal />
-          <div className="clearfix mxn1">
-            <FilterResults
-              value={search}
-              data={pokemons}
-              renderResults={results => (
-                <>
-                  {results.map(i => (
-                    <div
-                      key={i.id}
-                      className="col col-6 sm-col-3 md-col-2 px1 mb2"
-                    >
-                      <Pokemon pokemon={i} setSelected={setSelected} />
-                    </div>
-                  ))}
-                </>
-              )}
-            />
+        <nav>
+          <AppBar style={{ zIndex: 3 }}>
+            <Toolbar className="flex justify-between">
+              <Menu />
+              <AboutModalButton />
+              <PokemonModalButton />
+              <TextField
+                placeholder="Search..."
+                width={150}
+                style={{ marginLeft: 'auto' }}
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+              />
+            </Toolbar>
+          </AppBar>
+        </nav>
+        <main>
+          <div className="container pt4">
+            <PokemonModal />
+            <AboutModal />
+            <div className="clearfix mxn1">
+              <FilterResults
+                value={search}
+                data={pokemons}
+                renderResults={results => (
+                  <>
+                    {results.map(i => (
+                      <div
+                        key={i.id}
+                        className="col col-6 sm-col-3 md-col-2 px1 mb2"
+                      >
+                        <Pokemon pokemon={i} setSelected={setSelected} />
+                      </div>
+                    ))}
+                  </>
+                )}
+              />
+            </div>
           </div>
-        </div>
+        </main>
       </ThemeProvider>
     </Store>
   );
