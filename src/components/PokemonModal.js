@@ -79,6 +79,7 @@ const PokemonModal = () => {
         width: 600,
         maxWidth: '94%',
         maxHeight: '100%',
+        minHeight: 450,
         zIndex: state.activeModal === 'pokemon' ? 2 : 1,
         position: 'fixed',
         top: '50%',
@@ -110,7 +111,10 @@ const PokemonModal = () => {
       </Toolbar>
       <WindowContent>
         {state.fetchPokemonLoading && (
-          <div className="center">
+          <div
+            className="center flex justify-center items-center"
+            style={{ height: 250 }}
+          >
             <Hourglass size={32} />
           </div>
         )}
