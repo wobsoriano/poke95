@@ -34,5 +34,6 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  image-rendering: crisp-edges;
   /* user-drag: none; */
 }
