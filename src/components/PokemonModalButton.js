@@ -5,7 +5,7 @@ import { Button } from 'react95';
 const PokemonModalButton = () => {
   const [state, dispatch] = useContext(StoreContext);
 
-  const handleClick = () => {
+  const _handleClick = () => {
     dispatch({ type: 'SET_ACTIVE_MODAL', payload: 'pokemon' });
     dispatch({ type: 'SET_POKEMON_MODAL', payload: !state.pokemonModal });
   };
@@ -14,7 +14,7 @@ const PokemonModalButton = () => {
     <>
       {!state.hidePokemonModalButton && (
         <Button
-          onClick={handleClick}
+          onClick={_handleClick}
           active={state.pokemonModal}
           className="bold"
         >

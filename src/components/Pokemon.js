@@ -9,11 +9,11 @@ const Pokemon = ({ pokemon, setSelected }) => {
   const { id, name, selected } = pokemon;
   const [state, dispatch] = useContext(StoreContext);
 
-  const handleDoubleClick = () => {
+  const _handleDoubleClick = () => {
     openPokemonModal();
   };
 
-  const handlekeyDown = e => {
+  const _handlekeyDown = e => {
     if (e.key === 'Enter') {
       openPokemonModal();
     }
@@ -33,8 +33,8 @@ const Pokemon = ({ pokemon, setSelected }) => {
     <div
       tabIndex="0"
       onClick={() => setSelected(id)}
-      onDoubleClick={handleDoubleClick}
-      onKeyDown={handlekeyDown}
+      onDoubleClick={_handleDoubleClick}
+      onKeyDown={_handlekeyDown}
       className="pointer flex flex-column justify-center items-center"
       style={{ outline: 'none' }}
     >
@@ -46,10 +46,13 @@ const Pokemon = ({ pokemon, setSelected }) => {
         className="pokemon"
       />
       <span
-        className={`text-underline ${selected && 'selected-pokemon'}`}
+        className="text-underline"
         style={{
-          color: 'white',
+          color: '#FFFFFF',
           userSelect: 'none',
+          padding: 2,
+          background: selected ? '#0000aa' : 'transparent',
+          textDecoration: 'underline',
         }}
       >
         {titleCase(name)}

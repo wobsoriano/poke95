@@ -16,6 +16,27 @@ import Abilities from './Abilities';
 import { StoreContext } from '../store';
 import { titleCase, roundOff } from '../utils';
 
+const typeColors = {
+  normal: '#B7B7A8',
+  fire: '#FE6148',
+  water: '#4B90D6',
+  electric: '#FFCC32',
+  grass: '#77CC55',
+  ice: '#7ED4FF',
+  fighting: '#BA5544',
+  poison: '#AA5599',
+  ground: '#D8BD6C',
+  flying: '#9AA9FE',
+  psychic: '#FF6FA9',
+  bug: '#AABB22',
+  rock: '#C5B67E',
+  ghost: '#7D7EC6',
+  dragon: '#7766ED',
+  dark: '#795848',
+  steel: '#B7B7C5',
+  fairy: '#F1A9F0',
+};
+
 const PokemonModal = () => {
   const [state, dispatch] = useContext(StoreContext);
 
@@ -33,7 +54,14 @@ const PokemonModal = () => {
     dispatch({ type: 'SET_ACTIVE_MODAL', payload: 'pokemon' });
   };
 
-  const types = state.selectedPokemon.types.map(i => i.type.name).join(', ');
+  const types = state.selectedPokemon.types.map((i, idx) => {
+    return (
+      <React.Fragment key={idx}>
+        <span style={{ color: typeColors[i.type.name] }}>{i.type.name}</span>
+        {state.selectedPokemon.types.length !== idx + 1 && ', '}
+      </React.Fragment>
+    );
+  });
 
   return (
     <Window
@@ -90,6 +118,7 @@ const PokemonModal = () => {
                 <div className="sm-flex justify-center items-center">
                   <div className="center">
                     <LazyLoadImage
+                      placeholder={<Hourglass size={32} />}
                       effect="blur"
                       alt="pokemon"
                       src={`${state.spriteEndpoint}/${state.selectedPokemon.id}.png`}

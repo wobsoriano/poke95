@@ -20,13 +20,6 @@
   }
 }
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .pointer {
   cursor: pointer;
 }
@@ -42,14 +35,4 @@
   -webkit-user-select: none;
   user-select: none;
   /* user-drag: none; */
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.selected-pokemon {
-  background: #0000aa;
-  padding: 1;
-  /* border: 1px solid white; */
 }

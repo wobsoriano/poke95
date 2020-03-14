@@ -5,15 +5,15 @@ import { Button, List, ListItem, Divider } from 'react95';
 const Menu = () => {
   const [state, dispatch] = useContext(StoreContext);
 
-  const handleClick = () => {
+  const _handleClick = () => {
     dispatch({ type: 'SET_MENU', payload: !state.menu });
   };
 
-  const handleClose = () => {
+  const _handleClose = () => {
     dispatch({ type: 'SET_MENU', payload: false });
   };
 
-  const handleListItemClick = name => {
+  const _handleListItemClick = name => {
     if (name === 'about') {
       dispatch({ type: 'SET_ACTIVE_MODAL', payload: 'about' });
       dispatch({ type: 'SET_ABOUT_MODAL', payload: true });
@@ -32,31 +32,31 @@ const Menu = () => {
           horizontalAlign="left"
           verticalAlign="bottom"
           open={state.menu}
-          onClick={handleClose}
+          onClick={_handleClose}
         >
           <ListItem
             style={{
               display: 'flex',
               alignItems: 'center',
             }}
-            onClick={() => handleListItemClick('github')}
+            onClick={() => _handleListItemClick('github')}
           >
             <img
-              style={{ width: 22, marginRight: 3 }}
+              style={{ width: 22, marginRight: 8 }}
               src={require('../assets/cd.png')}
               alt="aboutLogo"
             />
-            <span>GitHub</span>
+            <span>GitHub Repo</span>
           </ListItem>
           <ListItem
             style={{
               display: 'flex',
               alignItems: 'center',
             }}
-            onClick={() => handleListItemClick('about')}
+            onClick={() => _handleListItemClick('about')}
           >
             <img
-              style={{ width: 22, marginRight: 3 }}
+              style={{ width: 22, marginRight: 8 }}
               src={require('../assets/computer.png')}
               alt="aboutLogo"
             />
@@ -67,7 +67,7 @@ const Menu = () => {
         </List>
       )}
       <Button
-        onClick={handleClick}
+        onClick={_handleClick}
         active={state.menu}
         style={{ fontWeight: 'bold', marginRight: 6 }}
       >

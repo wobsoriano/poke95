@@ -5,18 +5,18 @@ import { StoreContext } from '../store';
 const AboutModal = () => {
   const [state, dispatch] = useContext(StoreContext);
 
-  const handleClose = () => {
+  const _handleClose = () => {
     dispatch({ type: 'SET_ABOUT_MODAL', payload: false });
     dispatch({ type: 'SET_HIDE_ABOUT_MODAL_BUTTON', payload: true });
   };
 
-  const handleClick = () => {
+  const _handleClick = () => {
     dispatch({ type: 'SET_ACTIVE_MODAL', payload: 'about' });
   };
 
   return (
     <Window
-      onClick={handleClick}
+      onClick={_handleClick}
       style={{
         width: 300,
         maxWidth: '94%',
@@ -30,12 +30,12 @@ const AboutModal = () => {
       }}
     >
       <WindowHeader className="flex items-center justify-between">
-        <span>About.exe</span>
+        <span>About</span>
         <Button
           style={{ marginRight: '-6px', marginTop: '1px' }}
           size={'sm'}
           square
-          onClick={handleClose}
+          onClick={_handleClose}
         >
           <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>
             x

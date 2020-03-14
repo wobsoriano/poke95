@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import FilterResults from 'react-filter-search';
 import { reset, themes, AppBar, Toolbar, TextField, Hourglass } from 'react95';
+
+import Store from './store';
+import { getAllPokemons } from './api';
+
+// Components
 import PokemonModal from './components/PokemonModal';
 import AboutModal from './components/AboutModal';
 import Menu from './components/Menu';
 import Pokemon from './components/Pokemon';
 import AboutModalButton from './components/AboutModalButton';
 import PokemonModalButton from './components/PokemonModalButton';
-import Store from './store';
-import FilterResults from 'react-filter-search';
-import { getAllPokemons } from './api';
 
 const ResetStyles = createGlobalStyle`
   ${reset}
