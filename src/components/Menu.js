@@ -71,13 +71,12 @@ const Menu = () => {
         active={state.menu}
         style={{ fontWeight: 'bold', marginRight: 6 }}
       >
-        {/* <LogoIcon style={{ marginLeft: -2, marginRight: 4 }} /> */}
         <img
           src={require('../windowslogo.png')}
           alt="winlogo"
           style={{ marginLeft: -2, marginRight: 5, width: 20 }}
         />
-        Poke95
+        Poké95
       </Button>
     </div>
   );

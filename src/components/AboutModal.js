@@ -43,19 +43,23 @@ const AboutModal = () => {
         </Button>
       </WindowHeader>
       <WindowContent>
-        {'Built with '}{' '}
-        <Anchor href="https://reactjs.org/" target="_blank">
-          React
-        </Anchor>
-        {', '}
-        <Anchor href="https://github.com/arturbien/React95" target="_blank">
-          React95
-        </Anchor>
-        {`, and `}{' '}
-        <Anchor href="https://pokeapi.co/" target="_blank">
-          PokeAPI
-        </Anchor>
-        .
+        <p className="h1">Poké95</p>
+        <p className="mt2">An open source Windows 95 style Pokédex.</p>
+        <p className="mt2">
+          {'Built with '}{' '}
+          <Anchor href="https://reactjs.org/" target="_blank">
+            React
+          </Anchor>
+          {', '}
+          <Anchor href="https://github.com/arturbien/React95" target="_blank">
+            React95
+          </Anchor>
+          {`, and `}{' '}
+          <Anchor href="https://pokeapi.co/" target="_blank">
+            PokeAPI
+          </Anchor>
+          .
+        </p>
       </WindowContent>
     </Window>
   );

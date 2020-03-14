@@ -9,8 +9,8 @@ import Pokemon from './components/Pokemon';
 import AboutModalButton from './components/AboutModalButton';
 import PokemonModalButton from './components/PokemonModalButton';
 import Store from './store';
-import axios from 'axios';
 import FilterResults from 'react-filter-search';
+import { getAllPokemons } from './api';
 
 const ResetStyles = createGlobalStyle`
   ${reset}
@@ -26,14 +26,7 @@ function App() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios('https://pokeapi.co/api/v2/pokemon?limit=151');
-        const data = res.data.results.map((i, idx) => {
-          return {
-            id: idx + 1,
-            name: i.name,
-            selected: false,
-          };
-        });
+        const data = await getAllPokemons();
         setPokemons(data);
       } catch (e) {
         setError(true);

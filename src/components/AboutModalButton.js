@@ -19,11 +19,11 @@ const AboutModalButton = () => {
           className="bold"
           style={{ marginRight: 3 }}
         >
-          {/* <img
-          src={require('../windowslogo.png')}
-          alt="winlogo"
-          style={{ marginLeft: -2, marginRight: 5, width: 20 }}
-        /> */}
+          <img
+            src={require('../assets/computer.png')}
+            alt="computerLogo"
+            style={{ marginLeft: -2, marginRight: 5, width: 20 }}
+          />
           About
         </Button>
       )}

@@ -18,11 +18,11 @@ const PokemonModalButton = () => {
           active={state.pokemonModal}
           className="bold"
         >
-          {/* <img
-          src={require('../windowslogo.png')}
-          alt="winlogo"
-          style={{ marginLeft: -2, marginRight: 5, width: 20 }}
-        /> */}
+          <img
+            src={require('../assets/cd.png')}
+            alt="cdLogo"
+            style={{ marginLeft: -2, marginRight: 5, width: 20 }}
+          />
           Pokemon
         </Button>
       )}
