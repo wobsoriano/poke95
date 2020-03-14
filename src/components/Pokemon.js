@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Tooltip } from 'react95';
 import { StoreContext } from '../store';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { getPokemon } from '../api';
@@ -31,36 +30,34 @@ const Pokemon = ({ pokemon, setSelected }) => {
   };
 
   return (
-    <Tooltip text={`View ${titleCase(name)}'s info`}>
-      <div
-        tabIndex="0"
-        onClick={() => setSelected(id)}
-        onDoubleClick={_handleDoubleClick}
-        onKeyDown={_handlekeyDown}
-        className="pointer flex flex-column justify-center items-center"
-        style={{ outline: 'none' }}
+    <div
+      tabIndex="0"
+      onClick={() => setSelected(id)}
+      onDoubleClick={_handleDoubleClick}
+      onKeyDown={_handlekeyDown}
+      className="pointer flex flex-column justify-center items-center"
+      style={{ outline: 'none' }}
+    >
+      <LazyLoadImage
+        placeholderSrc={require('../assets/pokeball.png')}
+        effect="opacity"
+        alt="pokemon"
+        src={`${state.spriteEndpoint}${id}.png`}
+        className="pokemon"
+      />
+      <span
+        className="text-underline"
+        style={{
+          color: '#FFFFFF',
+          userSelect: 'none',
+          padding: 2,
+          background: selected ? '#0000aa' : 'transparent',
+          textDecoration: 'underline',
+        }}
       >
-        <LazyLoadImage
-          placeholderSrc={require('../assets/pokeball.png')}
-          effect="opacity"
-          alt="pokemon"
-          src={`${state.spriteEndpoint}${id}.png`}
-          className="pokemon"
-        />
-        <span
-          className="text-underline"
-          style={{
-            color: '#FFFFFF',
-            userSelect: 'none',
-            padding: 2,
-            background: selected ? '#0000aa' : 'transparent',
-            textDecoration: 'underline',
-          }}
-        >
-          {titleCase(name)}
-        </span>
-      </div>
-    </Tooltip>
+        {titleCase(name)}
+      </span>
+    </div>
   );
 };
 
