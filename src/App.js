@@ -6,6 +6,7 @@ import { reset, themes, AppBar, Toolbar, TextField, Hourglass } from 'react95';
 
 import Store from './store';
 import { getAllPokemons } from './api';
+import { startupSound } from './utils';
 
 // Components
 import PokemonModal from './components/PokemonModal';
@@ -26,6 +27,12 @@ function App() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
+    // Play startup sound
+    const ss = localStorage.getItem('startup_sound');
+    if (ss === 'true' || ss === null) {
+      startupSound().play();
+    }
+
     const fetchData = async () => {
       setLoading(true);
       try {

@@ -1,9 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { StoreContext } from '../store';
 import { Button, List, ListItem, Divider } from 'react95';
 
 const Menu = () => {
   const [state, dispatch] = useContext(StoreContext);
+  const [startupSound, setStartupSound] = useState(null);
+
+  useEffect(() => {
+    const ss = localStorage.getItem('startup_sound');
+    if (ss === null) {
+      localStorage.setItem('startup_sound', true);
+      setStartupSound(true);
+    } else {
+      setStartupSound(ss === 'true');
+    }
+  }, []);
 
   const _handleClick = () => {
     dispatch({ type: 'SET_MENU', payload: !state.menu });
@@ -11,6 +22,17 @@ const Menu = () => {
 
   const _handleClose = () => {
     dispatch({ type: 'SET_MENU', payload: false });
+  };
+
+  const _handleStartupSound = () => {
+    const ss = localStorage.getItem('startup_sound');
+    if (ss === 'true') {
+      localStorage.setItem('startup_sound', false);
+      setStartupSound(false);
+    } else {
+      localStorage.setItem('startup_sound', true);
+      setStartupSound(true);
+    }
   };
 
   const _handleListItemClick = name => {
@@ -63,7 +85,9 @@ const Menu = () => {
             <span>About</span>
           </ListItem>
           <Divider />
-          <ListItem disabled>Logout</ListItem>
+          <ListItem onClick={_handleStartupSound}>
+            Startup Sound: {startupSound ? 'On' : 'Off'}
+          </ListItem>
         </List>
       )}
       <Button
@@ -72,7 +96,7 @@ const Menu = () => {
         style={{ fontWeight: 'bold', marginRight: 6 }}
       >
         <img
-          src={require('../windowslogo.png')}
+          src={require('../assets/windowslogo.png')}
           alt="winlogo"
           style={{ marginLeft: -2, marginRight: 5, width: 20 }}
         />

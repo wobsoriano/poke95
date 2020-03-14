@@ -1,3 +1,5 @@
+import { Howl } from 'howler';
+
 export function titleCase(str) {
   if (!str) return;
   var splitStr = str.toLowerCase().split(' ');
@@ -12,3 +14,9 @@ export function titleCase(str) {
 }
 
 export const roundOff = num => Math.round((num + Number.EPSILON) * 100) / 100;
+
+export const startupSound = () => {
+  return new Howl({
+    src: [require('../assets/windows95_startup_theme.mp3')],
+  });
+};
