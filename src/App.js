@@ -20,6 +20,8 @@ const ResetStyles = createGlobalStyle`
   ${reset}
 `;
 
+const sound = startupSound();
+
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,7 @@ function App() {
     // Play startup sound
     const ss = localStorage.getItem('startup_sound');
     if (ss === 'true' || ss === null) {
-      startupSound().play();
+      sound.play();
     }
 
     const fetchData = async () => {
