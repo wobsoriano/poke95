@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { StoreContext } from '../store';
 import { Button, List, ListItem, Divider } from 'react95';
+import ClickAwayListener from 'react-click-away-listener';
 
 const Menu = () => {
   const [state, dispatch] = useContext(StoreContext);
@@ -46,62 +47,70 @@ const Menu = () => {
     }
   };
 
+  const _handleClickAway = () => {
+    if (state.menu) {
+      dispatch({ type: 'SET_MENU', payload: false });
+    }
+  };
+
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
-      {state.menu && (
-        <List
-          style={{ zIndex: 2 }}
-          horizontalAlign="left"
-          verticalAlign="bottom"
-          open={state.menu}
-          onClick={_handleClose}
+      <ClickAwayListener onClickAway={_handleClickAway}>
+        {state.menu && (
+          <List
+            style={{ zIndex: 2 }}
+            horizontalAlign="left"
+            verticalAlign="bottom"
+            open={state.menu}
+            onClick={_handleClose}
+          >
+            <ListItem
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+              onClick={() => _handleListItemClick('github')}
+            >
+              <img
+                style={{ width: 22, marginRight: 8 }}
+                src={require('../assets/cd.png')}
+                alt="aboutLogo"
+              />
+              <span>GitHub Repo</span>
+            </ListItem>
+            <ListItem
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+              onClick={() => _handleListItemClick('about')}
+            >
+              <img
+                style={{ width: 22, marginRight: 8 }}
+                src={require('../assets/computer.png')}
+                alt="aboutLogo"
+              />
+              <span>About</span>
+            </ListItem>
+            <Divider />
+            <ListItem onClick={_handleStartupSound}>
+              Startup Sound: {startupSound ? 'On' : 'Off'}
+            </ListItem>
+          </List>
+        )}
+        <Button
+          onClick={_handleClick}
+          active={state.menu}
+          style={{ fontWeight: 'bold', marginRight: 6 }}
         >
-          <ListItem
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
-            onClick={() => _handleListItemClick('github')}
-          >
-            <img
-              style={{ width: 22, marginRight: 8 }}
-              src={require('../assets/cd.png')}
-              alt="aboutLogo"
-            />
-            <span>GitHub Repo</span>
-          </ListItem>
-          <ListItem
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
-            onClick={() => _handleListItemClick('about')}
-          >
-            <img
-              style={{ width: 22, marginRight: 8 }}
-              src={require('../assets/computer.png')}
-              alt="aboutLogo"
-            />
-            <span>About</span>
-          </ListItem>
-          <Divider />
-          <ListItem onClick={_handleStartupSound}>
-            Startup Sound: {startupSound ? 'On' : 'Off'}
-          </ListItem>
-        </List>
-      )}
-      <Button
-        onClick={_handleClick}
-        active={state.menu}
-        style={{ fontWeight: 'bold', marginRight: 6 }}
-      >
-        <img
-          src={require('../assets/windowslogo.png')}
-          alt="winlogo"
-          style={{ marginLeft: -2, marginRight: 5, width: 20 }}
-        />
-        Poké95
-      </Button>
+          <img
+            src={require('../assets/windowslogo.png')}
+            alt="winlogo"
+            style={{ marginLeft: -2, marginRight: 5, width: 20 }}
+          />
+          Poké95
+        </Button>
+      </ClickAwayListener>
     </div>
   );
 };
