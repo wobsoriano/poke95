@@ -10,7 +10,7 @@ import {
   Toolbar,
   Hourglass,
 } from 'react95';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Img from 'react-image';
 import Stats from './Stats';
 import Abilities from './Abilities';
 import { StoreContext } from '../store';
@@ -126,13 +126,13 @@ const PokemonModal = () => {
               {state.tab === 0 && (
                 <div className="sm-flex justify-center items-center">
                   <div className="center">
-                    <LazyLoadImage
-                      placeholder={<Hourglass size={32} />}
-                      effect="blur"
-                      alt="pokemon"
+                    <Img
+                      style={{ width: 200 }}
                       src={`${state.spriteEndpoint}/${state.selectedPokemon.id}.png`}
-                      width={200}
-                    />
+                      loader={
+                        <Hourglass size={32} style={{ marginRight: 20 }} />
+                      }
+                    />{' '}
                   </div>
                   <div>
                     <div className="bold">

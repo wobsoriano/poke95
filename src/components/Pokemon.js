@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
+import Img from 'react-image';
+import VisibilitySensor from 'react-visibility-sensor';
 import { StoreContext } from '../store';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { getPokemon } from '../api';
 
 import { titleCase } from '../utils';
@@ -38,13 +39,18 @@ const Pokemon = ({ pokemon, setSelected }) => {
       className="pointer flex flex-column justify-center items-center"
       style={{ outline: 'none' }}
     >
-      <LazyLoadImage
-        placeholderSrc={require('../assets/pokeball.png')}
-        effect="opacity"
-        alt="pokemon"
-        src={`${state.spriteEndpoint}${id}.png`}
-        className="pokemon"
-      />
+      <VisibilitySensor>
+        <Img
+          src={`${state.spriteEndpoint}${id}.png`}
+          loader={
+            <img
+              alt="placeholder"
+              style={{ width: 50 }}
+              src={require('../assets/pokeball.png')}
+            />
+          }
+        />
+      </VisibilitySensor>
       <span
         className="text-underline"
         style={{
