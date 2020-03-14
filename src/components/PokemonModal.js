@@ -40,17 +40,17 @@ const typeColors = {
 const PokemonModal = () => {
   const [state, dispatch] = useContext(StoreContext);
 
-  const handleClose = () => {
+  const _handleClose = () => {
     dispatch({ type: 'SET_POKEMON_MODAL', payload: false });
     dispatch({ type: 'SET_TAB', payload: 0 });
     dispatch({ type: 'SET_HIDE_POKEMON_MODAL_BUTTON', payload: true });
   };
 
-  const handleChange = tab => {
+  const _handleChange = tab => {
     dispatch({ type: 'SET_TAB', payload: tab });
   };
 
-  const handleClick = () => {
+  const _handleClick = () => {
     dispatch({ type: 'SET_ACTIVE_MODAL', payload: 'pokemon' });
   };
 
@@ -65,7 +65,7 @@ const PokemonModal = () => {
 
   return (
     <Window
-      onClick={handleClick}
+      onClick={_handleClick}
       style={{
         width: 600,
         maxWidth: '94%',
@@ -84,7 +84,7 @@ const PokemonModal = () => {
           style={{ marginRight: '-6px', marginTop: '1px' }}
           size={'sm'}
           square
-          onClick={handleClose}
+          onClick={_handleClose}
         >
           <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>
             x
@@ -92,10 +92,10 @@ const PokemonModal = () => {
         </Button>
       </WindowHeader>
       <Toolbar>
-        <Button onClick={handleClose} disabled={true} variant="menu" size="sm">
+        <Button onClick={_handleClose} disabled={true} variant="menu" size="sm">
           File
         </Button>
-        <Button onClick={handleClose} variant="menu" size="sm">
+        <Button onClick={_handleClose} variant="menu" size="sm">
           Exit
         </Button>
       </Toolbar>
@@ -108,7 +108,7 @@ const PokemonModal = () => {
 
         {!state.fetchPokemonLoading && (
           <>
-            <Tabs value={state.tab} onChange={handleChange}>
+            <Tabs value={state.tab} onChange={_handleChange}>
               <Tab value={0}>Basic Info</Tab>
               <Tab value={1}>Stats</Tab>
               <Tab value={2}>Abilities</Tab>
