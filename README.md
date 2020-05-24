@@ -28,7 +28,7 @@ A Windows 95 style Pokédex built with React.
 
 © Robert C Soriano
 
-Licensed under the [GNU General Public License](LICENSE.md).
+Licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgments
 
