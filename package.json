@@ -17,8 +17,8 @@
     "react-image": "^2.4.0",
     "react-scripts": "3.4.0",
     "react-visibility-sensor": "^5.1.1",
-    "react95": "^2.0.0",
-    "styled-components": "^5.0.1"
+    "react95": "^3.0.0",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

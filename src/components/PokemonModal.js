@@ -46,7 +46,7 @@ const PokemonModal = () => {
     dispatch({ type: 'SET_HIDE_POKEMON_MODAL_BUTTON', payload: true });
   };
 
-  const _handleChange = tab => {
+  const _handleChange = (_, tab) => {
     dispatch({ type: 'SET_TAB', payload: tab });
   };
 
@@ -88,14 +88,9 @@ const PokemonModal = () => {
         display: state.pokemonModal ? 'block' : 'none',
       }}
     >
-      <WindowHeader className="window-header flex items-center justify-between">
+      <WindowHeader className="flex items-center justify-between">
         <span>Pokemon.exe</span>
-        <Button
-          style={{ marginRight: '-6px', marginTop: '1px' }}
-          size={'sm'}
-          square
-          onClick={_handleClose}
-        >
+        <Button onClick={_handleClose}>
           <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>
             x
           </span>

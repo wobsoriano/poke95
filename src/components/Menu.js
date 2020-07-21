@@ -58,19 +58,10 @@ const Menu = () => {
       <ClickAwayListener onClickAway={_handleClickAway}>
         {state.menu && (
           <List
-            style={{ zIndex: 2 }}
-            horizontalAlign="left"
-            verticalAlign="bottom"
-            open={state.menu}
+            style={{ position: 'absolute', left: '0', top: '100%' }}
             onClick={_handleClose}
           >
-            <ListItem
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-              onClick={() => _handleListItemClick('github')}
-            >
+            <ListItem onClick={() => _handleListItemClick('github')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
                 src={require('../assets/cd.png')}
@@ -78,13 +69,7 @@ const Menu = () => {
               />
               <span>GitHub Repo</span>
             </ListItem>
-            <ListItem
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-              onClick={() => _handleListItemClick('about')}
-            >
+            <ListItem onClick={() => _handleListItemClick('about')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
                 src={require('../assets/computer.png')}

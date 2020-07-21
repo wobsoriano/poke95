@@ -31,12 +31,7 @@ const AboutModal = () => {
     >
       <WindowHeader className="flex items-center justify-between">
         <span>About</span>
-        <Button
-          style={{ marginRight: '-6px', marginTop: '1px' }}
-          size={'sm'}
-          square
-          onClick={_handleClose}
-        >
+        <Button onClick={_handleClose}>
           <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>
             x
           </span>
