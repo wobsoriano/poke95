@@ -23,6 +23,7 @@ A Windows 95 style Pokédex built with React.
 - [React](https://reactjs.org)
 - [React95](https://github.com/arturbien/React95)
 - [PokeAPI](https://pokeapi.co)
+- [Vercel](https://vercel.com)
 
 ## License & copyright
 
