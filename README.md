@@ -1,6 +1,6 @@
 # Poké95
 
-A Windows 95 style Pokédex built with React.
+A Windows 95-classic style Pokédex built with React.
 
 ![demo](https://poke95.now.sh/demo.png)
 
