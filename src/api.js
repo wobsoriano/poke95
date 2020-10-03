@@ -2,15 +2,16 @@ import axios from 'axios';
 
 const getPokemon = async pokemonId => {
   try {
-    const data = (await axios(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`))
-      .data;
-    const species = (
-      await axios(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`)
-    ).data;
+    const [{ data }, { data: species }] = await Promise.all([
+      axios(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`),
+      axios(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`),
+    ]);
+
     const flavorTextEntry = species.flavor_text_entries.findIndex(i => {
       return i.language.name === 'en' && i.version.name === 'y';
     });
     data.flavor_text = species.flavor_text_entries[flavorTextEntry].flavor_text;
+
     return data;
   } catch (e) {
     throw e;
