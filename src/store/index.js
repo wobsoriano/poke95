@@ -29,11 +29,13 @@ function reducer(state, action) {
         menu: action.payload,
       };
     case 'SET_POKEMON_MODAL':
+      action.payload && setBodyOverflow('hidden');
       return {
         ...state,
         pokemonModal: action.payload,
       };
     case 'SET_ABOUT_MODAL':
+      action.payload && setBodyOverflow('hidden');
       return {
         ...state,
         aboutModal: action.payload,
@@ -59,11 +61,13 @@ function reducer(state, action) {
         selectedPokemon: action.payload,
       };
     case 'SET_HIDE_POKEMON_MODAL_BUTTON':
+      action.payload && setBodyOverflow('visible');
       return {
         ...state,
         hidePokemonModalButton: action.payload,
       };
     case 'SET_HIDE_ABOUT_MODAL_BUTTON':
+      action.payload && setBodyOverflow('visible');
       return {
         ...state,
         hideAboutModalButton: action.payload,
@@ -71,6 +75,10 @@ function reducer(state, action) {
     default:
       return state;
   }
+}
+
+function setBodyOverflow(property) {
+  document.body.style.overflow = property;
 }
 
 const Store = ({ children }) => {
