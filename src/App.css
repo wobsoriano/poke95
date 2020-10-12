@@ -38,3 +38,10 @@
   image-rendering: crisp-edges;
   /* user-drag: none; */
 }
+
+#selectedPokemon {
+  /*border: solid red 4px;*/
+  box-shadow: inset 0px 0px 0px 4px red;
+}
+
+

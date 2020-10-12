@@ -37,6 +37,7 @@ const Pokemon = ({ pokemon, setSelected }) => {
       onDoubleClick={_handleDoubleClick}
       onKeyDown={_handlekeyDown}
       className="pointer flex flex-column justify-center items-center"
+      id={`${pokemon.selected ? 'selectedPokemon' : ''}`}
       style={{ outline: 'none' }}
     >
       <VisibilitySensor>
