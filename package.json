@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "@use-it/event-listener": "^0.1.3",
     "axios": "^0.19.2",
     "howler": "^2.1.3",
@@ -23,7 +20,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint-check": "eslint --print-config src/App.js | eslint-config-prettier-check"
   },
