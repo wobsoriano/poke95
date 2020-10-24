@@ -8930,7 +8930,7 @@ react-visibility-sensor@^5.1.1:
   dependencies:
     prop-types "^15.7.2"
 
-react95@^3.0.0:
+react95@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/react95/-/react95-3.3.0.tgz#5f4bc016c51e9fbcbb2f8d52b3fd40179a6e4527"
   integrity sha512-xVw5MsbJbMsBqS7FC2kmcj6b6GivrujUyn/n/OZd+qC3N7K8cHltx3nuFssTll2UjnX81CbGQi202OkqOaZCyA==
