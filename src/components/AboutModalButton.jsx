@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { StoreContext } from '../store';
 import { Button } from 'react95';
 
+import ComputerImage from '../assets/computer.png';
+
 export const AboutModalButton = () => {
   const [state, dispatch] = useContext(StoreContext);
 
@@ -19,7 +21,7 @@ export const AboutModalButton = () => {
         style={{ marginRight: 3 }}
       >
         <img
-          src={'../assets/computer.png'}
+          src={ComputerImage}
           alt="computerLogo"
           style={{ marginLeft: -2, marginRight: 5, width: 20 }}
         />
