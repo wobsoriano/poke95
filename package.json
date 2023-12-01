@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@use-it/event-listener": "^0.1.7",
     "howler": "^2.2.4",
     "ohmyfetch": "^0.4.21",
     "query-string": "^8.1.0",
