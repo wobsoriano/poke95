@@ -5,6 +5,7 @@ import { StoreContext } from '../store';
 import { getPokemon } from '../api';
 
 import { titleCase } from '../utils';
+import PokeballImage from '../assets/pokeball.png'
 
 export const Pokemon = ({ pokemon, setSelected }) => {
   const { id, name, selected } = pokemon;
@@ -46,7 +47,7 @@ export const Pokemon = ({ pokemon, setSelected }) => {
             <img
               alt="placeholder"
               style={{ width: 50 }}
-              src={'../assets/pokeball.png'}
+              src={PokeballImage}
             />
           }
         />

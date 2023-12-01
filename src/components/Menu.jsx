@@ -4,6 +4,10 @@ import { Button, MenuList, MenuListItem, Separator } from 'react95';
 import ClickAwayListener from 'react-click-away-listener';
 import { Fragment } from 'react';
 
+import WindowsLogo from '../assets/windowslogo.png';
+import CDImage from '../assets/cd.png';
+import ComputerImage from '../assets/computer.png';
+
 export const Menu = () => {
   const [state, dispatch] = useContext(StoreContext);
   const [startupSound, setStartupSound] = useState(null);
@@ -66,7 +70,7 @@ export const Menu = () => {
             <MenuListItem onClick={() => _handleListItemClick('github')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
-                src={'../assets/cd.png'}
+                src={CDImage}
                 alt="aboutLogo"
               />
               <span>GitHub Repo</span>
@@ -74,7 +78,7 @@ export const Menu = () => {
             <MenuListItem onClick={() => _handleListItemClick('about')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
-                src={'../assets/computer.png'}
+                src={ComputerImage}
                 alt="aboutLogo"
               />
               <span>About</span>
@@ -91,7 +95,7 @@ export const Menu = () => {
           style={{ fontWeight: 'bold', marginRight: 6 }}
         >
           <img
-            src={'../assets/windowslogo.png'}
+            src={WindowsLogo}
             alt="winlogo"
             style={{ marginLeft: -2, marginRight: 5, width: 20 }}
           />
