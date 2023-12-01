@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import FilterResults from 'react-filter-search';
-import { styleReset, AppBar, Toolbar, TextField, Hourglass } from 'react95';
+import { styleReset, AppBar, Toolbar, TextInput, Hourglass } from 'react95';
 
 import original from 'react95/dist/themes/original';
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
@@ -21,6 +21,7 @@ import { AboutModalButton } from './components/AboutModalButton';
 import { PokemonModalButton } from './components/PokemonModalButton';
 
 const GlobalStyles = createGlobalStyle`
+  ${styleReset}
   @font-face {
     font-family: 'ms_sans_serif';
     src: url('${ms_sans_serif}') format('woff2');
@@ -36,7 +37,6 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'ms_sans_serif';
   }
-  ${styleReset}
 `;
 
 const sound = startupSound();
@@ -105,7 +105,7 @@ function App() {
               <Menu />
               <AboutModalButton />
               <PokemonModalButton />
-              <TextField
+              <TextInput
                 placeholder="Search..."
                 width={150}
                 style={{ marginLeft: 'auto' }}

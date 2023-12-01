@@ -46,8 +46,8 @@ export const PokemonModal = () => {
     dispatch({ type: 'SET_HIDE_POKEMON_MODAL_BUTTON', payload: true });
   };
 
-  const _handleChange = (_, tab) => {
-    dispatch({ type: 'SET_TAB', payload: tab });
+  const _handleChange = (value) => {
+    dispatch({ type: 'SET_TAB', payload: value });
   };
 
   const _handleClick = () => {
@@ -105,16 +105,14 @@ export const PokemonModal = () => {
         </Button>
       </Toolbar>
       <WindowContent>
-        {state.fetchPokemonLoading && (
+        {state.fetchPokemonLoading? (
           <div
             className="center flex justify-center items-center"
             style={{ height: 250 }}
           >
             <Hourglass size={32} />
           </div>
-        )}
-
-        {!state.fetchPokemonLoading && (
+        ) : (
           <>
             <Tabs value={state.tab} onChange={_handleChange}>
               <Tab value={0}>Basic Info</Tab>
@@ -122,7 +120,7 @@ export const PokemonModal = () => {
               <Tab value={2}>Abilities</Tab>
             </Tabs>
             <TabBody>
-              {state.tab === 0 && (
+              {state.tab === 0 ? (
                 <div className="sm-flex justify-center items-center">
                   <div className="center">
                     <Img
@@ -157,11 +155,11 @@ export const PokemonModal = () => {
                     <p className="mt2">{state.selectedPokemon.flavor_text}</p>
                   </div>
                 </div>
-              )}
-              {state.tab === 1 && <Stats stats={state.selectedPokemon.stats} />}
-              {state.tab === 2 && (
+              ) : null }
+              {state.tab === 1 ? <Stats stats={state.selectedPokemon.stats} /> : null }
+              {state.tab === 2 ? (
                 <Abilities abilities={state.selectedPokemon.abilities} />
-              )}
+              ) : null}
             </TabBody>
           </>
         )}
