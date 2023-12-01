@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "ohmyfetch": "^0.4.21",
+    "ofetch": "^1.3.3",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-click-away-listener": "^2.2.3",

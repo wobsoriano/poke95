@@ -1,4 +1,4 @@
-import { $fetch } from 'ohmyfetch';
+import { $fetch } from 'ofetch';
 
 const getPokemon = async pokemonId => {
   const [data, species] = await Promise.all([
