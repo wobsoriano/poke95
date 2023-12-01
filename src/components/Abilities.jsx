@@ -1,11 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableRow,
-  TableHeadCell,
-  TableDataCell,
-} from 'react95';
+import { Table, TableBody, TableHead, TableRow, TableHeadCell, TableDataCell } from 'react95';
 import { titleCase } from '../utils';
 
 export const Abilities = ({ abilities }) => {

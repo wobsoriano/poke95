@@ -32,9 +32,7 @@ export const AboutModal = () => {
       <WindowHeader className="flex items-center justify-between">
         <span>About</span>
         <Button onClick={_handleClose}>
-          <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>
-            x
-          </span>
+          <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>x</span>
         </Button>
       </WindowHeader>
       <WindowContent>
@@ -57,10 +55,7 @@ export const AboutModal = () => {
         </p>
         <p className="mt2">
           {'Icons '}{' '}
-          <Anchor
-            href="https://artage.io/en/icon-packs/original-windows-95-icons"
-            target="_blank"
-          >
+          <Anchor href="https://artage.io/en/icon-packs/original-windows-95-icons" target="_blank">
             downloaded here.
           </Anchor>
         </p>

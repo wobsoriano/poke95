@@ -5,7 +5,7 @@ import { StoreContext } from '../store';
 import { getPokemon } from '../api';
 
 import { titleCase } from '../utils';
-import PokeballImage from '../assets/pokeball.png'
+import PokeballImage from '../assets/pokeball.png';
 
 export const Pokemon = ({ pokemon, setSelected }) => {
   const { id, name, selected } = pokemon;
@@ -43,13 +43,7 @@ export const Pokemon = ({ pokemon, setSelected }) => {
       <VisibilitySensor>
         <Img
           src={`${state.spriteEndpoint}${id}.png`}
-          loader={
-            <img
-              alt="placeholder"
-              style={{ width: 50 }}
-              src={PokeballImage}
-            />
-          }
+          loader={<img alt="placeholder" style={{ width: 50 }} src={PokeballImage} />}
         />
       </VisibilitySensor>
       <span

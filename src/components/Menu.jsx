@@ -1,8 +1,7 @@
-import { useState, useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { StoreContext } from '../store';
 import { Button, MenuList, MenuListItem, Separator } from 'react95';
 import ClickAwayListener from 'react-click-away-listener';
-import { Fragment } from 'react';
 
 import WindowsLogo from '../assets/windowslogo.png';
 import CDImage from '../assets/cd.png';
@@ -38,42 +37,32 @@ export const Menu = () => {
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
-        {state.menu ? (<ClickAwayListener onClickAway={_handleClickAway}>
-          <MenuList
-            style={{ position: 'absolute', left: '0', top: '100%' }}
-            onClick={_handleClose}
-          >
+      {state.menu ? (
+        <ClickAwayListener onClickAway={_handleClickAway}>
+          <MenuList style={{ position: 'absolute', left: '0', top: '100%' }} onClick={_handleClose}>
             <MenuListItem onClick={() => _handleListItemClick('github')}>
-              <img
-                style={{ width: 22, marginRight: 8 }}
-                src={CDImage}
-                alt="aboutLogo"
-              />
+              <img style={{ width: 22, marginRight: 8 }} src={CDImage} alt="aboutLogo" />
               <span>GitHub Repo</span>
             </MenuListItem>
             <MenuListItem onClick={() => _handleListItemClick('about')}>
-              <img
-                style={{ width: 22, marginRight: 8 }}
-                src={ComputerImage}
-                alt="aboutLogo"
-              />
+              <img style={{ width: 22, marginRight: 8 }} src={ComputerImage} alt="aboutLogo" />
               <span>About</span>
             </MenuListItem>
           </MenuList>
-      </ClickAwayListener>
-        ) : null}
-        <Button
-          onClick={_handleClick}
-          active={state.menu}
-          style={{ fontWeight: 'bold', marginRight: 6 }}
-        >
-          <img
-            src={WindowsLogo}
-            alt="winlogo"
-            style={{ marginLeft: -2, marginRight: 5, width: 20 }}
-          />
-          Poké95
-        </Button>
+        </ClickAwayListener>
+      ) : null}
+      <Button
+        onClick={_handleClick}
+        active={state.menu}
+        style={{ fontWeight: 'bold', marginRight: 6 }}
+      >
+        <img
+          src={WindowsLogo}
+          alt="winlogo"
+          style={{ marginLeft: -2, marginRight: 5, width: 20 }}
+        />
+        Poké95
+      </Button>
     </div>
   );
 };

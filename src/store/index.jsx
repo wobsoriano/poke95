@@ -17,8 +17,7 @@ const initialState = {
     types: [],
     abilities: [],
   },
-  spriteEndpoint:
-    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
+  spriteEndpoint: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
 };
 
 function reducer(state, action) {
@@ -83,11 +82,7 @@ function setBodyOverflow(property) {
 
 const Store = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return (
-    <StoreContext.Provider value={[state, dispatch]}>
-      {children}
-    </StoreContext.Provider>
-  );
+  return <StoreContext.Provider value={[state, dispatch]}>{children}</StoreContext.Provider>;
 };
 
 export default Store;

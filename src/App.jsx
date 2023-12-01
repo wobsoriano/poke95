@@ -61,10 +61,7 @@ function App() {
 
   if (loading) {
     return (
-      <div
-        className="flex items-center justify-center"
-        style={{ height: '90vh' }}
-      >
+      <div className="flex items-center justify-center" style={{ height: '90vh' }}>
         <Hourglass size={40} />
       </div>
     );
@@ -117,10 +114,7 @@ function App() {
                 renderResults={results => (
                   <>
                     {results.map(i => (
-                      <div
-                        key={i.id}
-                        className="col col-6 sm-col-3 md-col-2 px1 mb2"
-                      >
+                      <div key={i.id} className="col col-6 sm-col-3 md-col-2 px1 mb2">
                         <Pokemon pokemon={i} setSelected={setSelected} />
                       </div>
                     ))}

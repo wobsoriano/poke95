@@ -46,7 +46,7 @@ export const PokemonModal = () => {
     dispatch({ type: 'SET_HIDE_POKEMON_MODAL_BUTTON', payload: true });
   };
 
-  const _handleChange = (value) => {
+  const _handleChange = value => {
     dispatch({ type: 'SET_TAB', payload: value });
   };
 
@@ -91,9 +91,7 @@ export const PokemonModal = () => {
       <WindowHeader className="flex items-center justify-between">
         <span>Pokemon.exe</span>
         <Button onClick={_handleClose}>
-          <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>
-            x
-          </span>
+          <span style={{ fontWeight: 'bold', transform: 'translateY(-1px)' }}>x</span>
         </Button>
       </WindowHeader>
       <Toolbar>
@@ -105,11 +103,8 @@ export const PokemonModal = () => {
         </Button>
       </Toolbar>
       <WindowContent>
-        {state.fetchPokemonLoading? (
-          <div
-            className="center flex justify-center items-center"
-            style={{ height: 250 }}
-          >
+        {state.fetchPokemonLoading ? (
+          <div className="center flex justify-center items-center" style={{ height: 250 }}>
             <Hourglass size={32} />
           </div>
         ) : (
@@ -126,20 +121,16 @@ export const PokemonModal = () => {
                     <Img
                       style={{ width: 200 }}
                       src={`${state.spriteEndpoint}/${state.selectedPokemon.id}.png`}
-                      loader={
-                        <Hourglass size={32} style={{ marginRight: 20 }} />
-                      }
+                      loader={<Hourglass size={32} style={{ marginRight: 20 }} />}
                     />{' '}
                   </div>
                   <div>
                     <div className="bold">
                       <span className="xs-hide sm-hide h1">
-                        {titleCase(state.selectedPokemon.name)} #
-                        {state.selectedPokemon.id}
+                        {titleCase(state.selectedPokemon.name)} #{state.selectedPokemon.id}
                       </span>
                       <span className="md-hide lg-hide h1">
-                        {titleCase(state.selectedPokemon.name)} #
-                        {state.selectedPokemon.id}
+                        {titleCase(state.selectedPokemon.name)} #{state.selectedPokemon.id}
                       </span>
                     </div>
 
@@ -155,11 +146,9 @@ export const PokemonModal = () => {
                     <p className="mt2">{state.selectedPokemon.flavor_text}</p>
                   </div>
                 </div>
-              ) : null }
-              {state.tab === 1 ? <Stats stats={state.selectedPokemon.stats} /> : null }
-              {state.tab === 2 ? (
-                <Abilities abilities={state.selectedPokemon.abilities} />
               ) : null}
+              {state.tab === 1 ? <Stats stats={state.selectedPokemon.stats} /> : null}
+              {state.tab === 2 ? <Abilities abilities={state.selectedPokemon.abilities} /> : null}
             </TabBody>
           </>
         )}
