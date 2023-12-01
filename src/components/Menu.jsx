@@ -25,7 +25,7 @@ export const Menu = () => {
       dispatch({ type: 'SET_ABOUT_MODAL', payload: true });
       dispatch({ type: 'SET_HIDE_ABOUT_MODAL_BUTTON', payload: false });
     } else if (name === 'github') {
-      const win = window.open('https://github.com/sorxrob/poke95', '_blank');
+      const win = window.open('https://github.com/wobsoriano/poke95', '_blank');
       win.focus();
     }
   };
