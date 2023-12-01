@@ -1,10 +1,10 @@
-import axios from 'axios';
+import { $fetch } from 'ohmyfetch';
 
 const getPokemon = async pokemonId => {
   try {
-    const [{ data }, { data: species }] = await Promise.all([
-      axios(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`),
-      axios(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`),
+    const [data, species] = await Promise.all([
+      $fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`),
+      $fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`),
     ]);
 
     const flavorTextEntry = species.flavor_text_entries.findIndex(i => {
@@ -20,15 +20,14 @@ const getPokemon = async pokemonId => {
 
 const getAllPokemons = async () => {
   try {
-    const res = await axios('https://pokeapi.co/api/v2/pokemon?limit=151');
-    const data = res.data.results.map((i, idx) => {
+    const data = await $fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+    return data.results.map((i, idx) => {
       return {
         id: idx + 1,
         name: i.name,
         selected: false,
       };
     });
-    return data;
   } catch (e) {
     throw e;
   }

@@ -5,17 +5,17 @@
   "type": "module",
   "dependencies": {
     "@use-it/event-listener": "^0.1.7",
-    "axios": "^0.21.2",
     "howler": "^2.2.4",
+    "ohmyfetch": "^0.4.21",
     "query-string": "^8.1.0",
+    "react": "^18.2.0",
     "react-click-away-listener": "^2.2.3",
+    "react-dom": "^18.2.0",
     "react-filter-search": "^1.1.11",
     "react-image": "^4.1.0",
     "react-visibility-sensor": "^5.1.1",
     "react95": "^4.0.0",
-    "styled-components": "^5.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "dev": "vite",
