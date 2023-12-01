@@ -51,7 +51,7 @@ function App() {
     // Play startup sound
     const ss = localStorage.getItem('startup_sound');
     if (ss === 'true' || ss === null) {
-      // sound.play();
+      sound.play();
     }
 
     const fetchData = async () => {
