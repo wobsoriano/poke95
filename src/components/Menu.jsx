@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import { StoreContext } from '../store';
-import { Button, List, ListItem, Divider } from 'react95';
+import { Button, MenuList, MenuListItem, Separator } from 'react95';
 import ClickAwayListener from 'react-click-away-listener';
 import { Fragment } from 'react';
 
@@ -59,31 +59,31 @@ export const Menu = () => {
       <ClickAwayListener onClickAway={_handleClickAway}>
         <Fragment>
         {state.menu && (
-          <List
+          <MenuList
             style={{ position: 'absolute', left: '0', top: '100%' }}
             onClick={_handleClose}
           >
-            <ListItem onClick={() => _handleListItemClick('github')}>
+            <MenuListItem onClick={() => _handleListItemClick('github')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
                 src={'../assets/cd.png'}
                 alt="aboutLogo"
               />
               <span>GitHub Repo</span>
-            </ListItem>
-            <ListItem onClick={() => _handleListItemClick('about')}>
+            </MenuListItem>
+            <MenuListItem onClick={() => _handleListItemClick('about')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
                 src={'../assets/computer.png'}
                 alt="aboutLogo"
               />
               <span>About</span>
-            </ListItem>
-            <Divider />
-            <ListItem onClick={_handleStartupSound}>
+            </MenuListItem>
+            <Separator />
+            <MenuListItem onClick={_handleStartupSound}>
               Startup Sound: {startupSound ? 'On' : 'Off'}
-            </ListItem>
-          </List>
+            </MenuListItem>
+          </MenuList>
         )}
         <Button
           onClick={_handleClick}
