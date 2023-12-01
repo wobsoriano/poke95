@@ -10,17 +10,6 @@ import ComputerImage from '../assets/computer.png';
 
 export const Menu = () => {
   const [state, dispatch] = useContext(StoreContext);
-  const [startupSound, setStartupSound] = useState(null);
-
-  useEffect(() => {
-    const ss = localStorage.getItem('startup_sound');
-    if (ss === null) {
-      localStorage.setItem('startup_sound', true);
-      setStartupSound(true);
-    } else {
-      setStartupSound(ss === 'true');
-    }
-  }, []);
 
   const _handleClick = () => {
     dispatch({ type: 'SET_MENU', payload: !state.menu });
@@ -28,17 +17,6 @@ export const Menu = () => {
 
   const _handleClose = () => {
     dispatch({ type: 'SET_MENU', payload: false });
-  };
-
-  const _handleStartupSound = () => {
-    const ss = localStorage.getItem('startup_sound');
-    if (ss === 'true') {
-      localStorage.setItem('startup_sound', false);
-      setStartupSound(false);
-    } else {
-      localStorage.setItem('startup_sound', true);
-      setStartupSound(true);
-    }
   };
 
   const _handleListItemClick = name => {
@@ -80,10 +58,6 @@ export const Menu = () => {
                 alt="aboutLogo"
               />
               <span>About</span>
-            </MenuListItem>
-            <Separator />
-            <MenuListItem onClick={_handleStartupSound}>
-              Startup Sound: {startupSound ? 'On' : 'Off'}
             </MenuListItem>
           </MenuList>
       </ClickAwayListener>

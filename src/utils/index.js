@@ -1,6 +1,3 @@
-import { Howl } from 'howler';
-import Windows95Sound from '../assets/windows95_startup_theme.mp3';
-
 export function titleCase(str) {
   if (!str) return;
   var splitStr = str.toLowerCase().split(' ');
@@ -15,9 +12,3 @@ export function titleCase(str) {
 }
 
 export const roundOff = num => Math.round((num + Number.EPSILON) * 100) / 100;
-
-export const startupSound = () => {
-  return new Howl({
-    src: [Windows95Sound],
-  });
-};

@@ -64,15 +64,6 @@ export const AboutModal = () => {
             downloaded here.
           </Anchor>
         </p>
-        <p className="mt2">
-          {'Startup sound '}{' '}
-          <Anchor
-            href="http://soundbible.com/1654-Windows-95-Startup.html"
-            target="_blank"
-          >
-            downloaded here.
-          </Anchor>
-        </p>
       </WindowContent>
     </Window>
   );

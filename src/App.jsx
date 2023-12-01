@@ -10,7 +10,6 @@ import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 
 import Store from './store';
 import { getAllPokemons } from './api';
-import { startupSound } from './utils';
 
 // Components
 import { PokemonModal } from './components/PokemonModal';
@@ -39,8 +38,6 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const sound = startupSound();
-
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,12 +45,6 @@ function App() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    // Play startup sound
-    const ss = localStorage.getItem('startup_sound');
-    if (ss === 'true' || ss === null) {
-      sound.play();
-    }
-
     const fetchData = async () => {
       setLoading(true);
       try {
