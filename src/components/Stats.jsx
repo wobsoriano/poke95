@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Table,
   TableBody,
@@ -9,7 +8,7 @@ import {
 } from 'react95';
 import { titleCase } from '../utils';
 
-const Stats = ({ stats }) => {
+export const Stats = ({ stats }) => {
   return (
     <Table>
       <TableHead>
@@ -31,5 +30,3 @@ const Stats = ({ stats }) => {
     </Table>
   );
 };
-
-export default Stats;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import FilterResults from 'react-filter-search';
@@ -13,12 +13,12 @@ import { getAllPokemons } from './api';
 import { startupSound } from './utils';
 
 // Components
-import PokemonModal from './components/PokemonModal';
-import AboutModal from './components/AboutModal';
-import Menu from './components/Menu';
-import Pokemon from './components/Pokemon';
-import AboutModalButton from './components/AboutModalButton';
-import PokemonModalButton from './components/PokemonModalButton';
+import { PokemonModal } from './components/PokemonModal';
+import { AboutModal } from './components/AboutModal';
+import { Menu } from './components/Menu';
+import { Pokemon } from './components/Pokemon';
+import { AboutModalButton } from './components/AboutModalButton';
+import { PokemonModalButton } from './components/PokemonModalButton';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -51,7 +51,7 @@ function App() {
     // Play startup sound
     const ss = localStorage.getItem('startup_sound');
     if (ss === 'true' || ss === null) {
-      sound.play();
+      // sound.play();
     }
 
     const fetchData = async () => {

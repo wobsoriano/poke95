@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { StoreContext } from '../store';
 import { Button } from 'react95';
 
-const PokemonModalButton = () => {
+export const PokemonModalButton = () => {
   const [state, dispatch] = useContext(StoreContext);
 
   const _handleClick = () => {
@@ -19,7 +19,7 @@ const PokemonModalButton = () => {
           className="bold"
         >
           <img
-            src={require('../assets/cd.png')}
+            src={'../assets/cd.png'}
             alt="cdLogo"
             style={{ marginLeft: -2, marginRight: 5, width: 20 }}
           />
@@ -29,5 +29,3 @@ const PokemonModalButton = () => {
     </>
   );
 };
-
-export default PokemonModalButton;

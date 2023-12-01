@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext, Fragment } from 'react';
 import {
   Window,
   WindowContent,
@@ -10,9 +10,9 @@ import {
   Toolbar,
   Hourglass,
 } from 'react95';
-import Img from 'react-image';
-import Stats from './Stats';
-import Abilities from './Abilities';
+import { Img } from 'react-image';
+import { Stats } from './Stats';
+import { Abilities } from './Abilities';
 import { StoreContext } from '../store';
 import { titleCase, roundOff } from '../utils';
 
@@ -37,7 +37,7 @@ const typeColors = {
   fairy: '#F1A9F0',
 };
 
-const PokemonModal = () => {
+export const PokemonModal = () => {
   const [state, dispatch] = useContext(StoreContext);
 
   const _handleClose = () => {
@@ -56,7 +56,7 @@ const PokemonModal = () => {
 
   const types = state.selectedPokemon.types.map((i, idx) => {
     return (
-      <React.Fragment key={idx}>
+      <Fragment key={idx}>
         <div
           style={{
             background: typeColors[i.type.name],
@@ -68,7 +68,7 @@ const PokemonModal = () => {
         >
           {i.type.name}
         </div>{' '}
-      </React.Fragment>
+      </Fragment>
     );
   });
 
@@ -169,5 +169,3 @@ const PokemonModal = () => {
     </Window>
   );
 };
-
-export default PokemonModal;

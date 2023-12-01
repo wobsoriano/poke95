@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import Img from 'react-image';
+import { useContext } from 'react';
+import { Img } from 'react-image';
 import VisibilitySensor from 'react-visibility-sensor';
 import { StoreContext } from '../store';
 import { getPokemon } from '../api';
 
 import { titleCase } from '../utils';
 
-const Pokemon = ({ pokemon, setSelected }) => {
+export const Pokemon = ({ pokemon, setSelected }) => {
   const { id, name, selected } = pokemon;
   const [state, dispatch] = useContext(StoreContext);
 
@@ -46,7 +46,7 @@ const Pokemon = ({ pokemon, setSelected }) => {
             <img
               alt="placeholder"
               style={{ width: 50 }}
-              src={require('../assets/pokeball.png')}
+              src={'../assets/pokeball.png'}
             />
           }
         />
@@ -66,5 +66,3 @@ const Pokemon = ({ pokemon, setSelected }) => {
     </div>
   );
 };
-
-export default Pokemon;

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Window, WindowContent, WindowHeader, Button, Anchor } from 'react95';
 import { StoreContext } from '../store';
 
-const AboutModal = () => {
+export const AboutModal = () => {
   const [state, dispatch] = useContext(StoreContext);
 
   const _handleClose = () => {
@@ -77,5 +77,3 @@ const AboutModal = () => {
     </Window>
   );
 };
-
-export default AboutModal;

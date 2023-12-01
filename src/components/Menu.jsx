@@ -1,9 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { StoreContext } from '../store';
 import { Button, List, ListItem, Divider } from 'react95';
 import ClickAwayListener from 'react-click-away-listener';
+import { Fragment } from 'react';
 
-const Menu = () => {
+export const Menu = () => {
   const [state, dispatch] = useContext(StoreContext);
   const [startupSound, setStartupSound] = useState(null);
 
@@ -56,6 +57,7 @@ const Menu = () => {
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
       <ClickAwayListener onClickAway={_handleClickAway}>
+        <Fragment>
         {state.menu && (
           <List
             style={{ position: 'absolute', left: '0', top: '100%' }}
@@ -64,7 +66,7 @@ const Menu = () => {
             <ListItem onClick={() => _handleListItemClick('github')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
-                src={require('../assets/cd.png')}
+                src={'../assets/cd.png'}
                 alt="aboutLogo"
               />
               <span>GitHub Repo</span>
@@ -72,7 +74,7 @@ const Menu = () => {
             <ListItem onClick={() => _handleListItemClick('about')}>
               <img
                 style={{ width: 22, marginRight: 8 }}
-                src={require('../assets/computer.png')}
+                src={'../assets/computer.png'}
                 alt="aboutLogo"
               />
               <span>About</span>
@@ -89,15 +91,14 @@ const Menu = () => {
           style={{ fontWeight: 'bold', marginRight: 6 }}
         >
           <img
-            src={require('../assets/windowslogo.png')}
+            src={'../assets/windowslogo.png'}
             alt="winlogo"
             style={{ marginLeft: -2, marginRight: 5, width: 20 }}
           />
           Poké95
         </Button>
+        </Fragment>
       </ClickAwayListener>
     </div>
   );
 };
-
-export default Menu;
