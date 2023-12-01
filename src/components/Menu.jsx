@@ -60,9 +60,7 @@ export const Menu = () => {
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
-      <ClickAwayListener onClickAway={_handleClickAway}>
-        <Fragment>
-        {state.menu && (
+        {state.menu ? (<ClickAwayListener onClickAway={_handleClickAway}>
           <MenuList
             style={{ position: 'absolute', left: '0', top: '100%' }}
             onClick={_handleClose}
@@ -88,7 +86,8 @@ export const Menu = () => {
               Startup Sound: {startupSound ? 'On' : 'Off'}
             </MenuListItem>
           </MenuList>
-        )}
+      </ClickAwayListener>
+        ) : null}
         <Button
           onClick={_handleClick}
           active={state.menu}
@@ -101,8 +100,6 @@ export const Menu = () => {
           />
           Poké95
         </Button>
-        </Fragment>
-      </ClickAwayListener>
     </div>
   );
 };
